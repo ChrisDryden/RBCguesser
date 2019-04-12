@@ -13,7 +13,7 @@ $(document).ready(function() {
     distance: 0
   };
 
-  var round = game.round;
+  var round = 1;
   var points = game.round.score.rewarded;
   var roundScore = game.round.score.final;
   var totalScore = game.totalScore;

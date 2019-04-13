@@ -1,5 +1,13 @@
-Whereami?
+RBC Guessr
 ========
+
+This game is an edited version of the whereami project with bugfixes and changes to the core scoreing structure.
+
+
+
+========
+
+Whereami
 
 ![Whereami version 1](https://i.imgur.com/reGUXlP.png)
 

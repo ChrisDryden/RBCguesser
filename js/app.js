@@ -51,6 +51,10 @@ $(document).ready(function() {
   // End of round continue button click
   $('#roundEnd').on('click', '.closeBtn', function() {
     $('#roundEnd').fadeOut(500);
+    if(round == 5){
+      endGame();
+    }
+    else{
 
     // Reload maps to refresh coords
     svinitialize();
@@ -59,6 +63,7 @@ $(document).ready(function() {
 
     // Reset Timer
     resetTimer();
+  }
   });
 
   // End of game 'play again' button click
@@ -124,15 +129,9 @@ else if (inRange(distance, 2301, 2800)) {         points = 200;
 } else if (inRange(distance, 4501, 6000)) {         points = 25;
 } else { points = 0;       }       console.log('what');
 
-      if (round < 5) {
-      console.log('test');
+      
         endRound();
 
-      } else if (round >= 5) {
-        console.log('weetest');
-
-        endGame();
-      }
 
     } else {
 

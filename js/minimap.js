@@ -8,8 +8,8 @@ function mminitialize() {
 
   // Mini map setup
   var mapOptions = {
-    center: new google.maps.LatLng(0, 0, true),
-    zoom: 1,
+    center: new google.maps.LatLng(56.1304, -106.3468, true),
+    zoom: 3,
     mapTypeControl: false,
     streetViewControl: false,
     mapTypeId: google.maps.MapTypeId.ROADMAP

@@ -13,7 +13,7 @@ $(document).ready(function() {
     distance: 0
   };
 
-  var round = game.round;
+  var round = 1;
   var points = game.round.score.rewarded;
   var roundScore = game.round.score.final;
   var totalScore = game.totalScore;
@@ -69,7 +69,7 @@ $(document).ready(function() {
   // Functions
   // Reset Timer
   function resetTimer() {
-    count = 15;
+    count = 100;
     counter = setInterval(timer, 1000);
   }
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
 
   function doGuess() {
     if (game.timedOut === false) {
-
+      console.log('finished');
       // Stop Counter
       clearInterval(counter);
 
@@ -109,39 +109,28 @@ $(document).ready(function() {
       }
 
       // Real basic point thresholds depending on kilometer distances
-      if (inRange(distance, 1, 2)) {
-        points = 10000;
-      } else if (inRange(distance, 3, 10)) {
-        points = 7000;
-      } else if (inRange(distance, 11, 50)) {
-        points = 4000;
-      } else if (inRange(distance, 51, 200)) {
-        points = 3000;
-      } else if (inRange(distance, 201, 500)) {
-        points = 2000;
-      } else if (inRange(distance, 501, 800)) {
-        points = 1000;
-      } else if (inRange(distance, 801, 1300)) {
-        points = 500;
-      } else if (inRange(distance, 1301, 1600)) {
-        points = 400;
-      } else if (inRange(distance, 1601, 2300)) {
-        points = 300;
-      } else if (inRange(distance, 2301, 2800)) {
-        points = 200;
-      } else if (inRange(distance, 2801, 3200)) {
-        points = 100;
-      } else if (inRange(distance, 3200, 4500)) {
-        points = 50;
-      } else if (inRange(distance, 4501, 6000)) {
-        points = 25;
-      } else {
-        points = 0;
-      }
+if (inRange(distance, 1, 2)) {         points = 10000;       } else if
+(inRange(distance, 3, 10)) {         points = 7000;       } else if
+(inRange(distance, 11, 50)) {         points = 4000;       } else if
+(inRange(distance, 51, 200)) {         points = 3000;       } else if
+(inRange(distance, 201, 500)) {         points = 2000;       } else if
+(inRange(distance, 501, 800)) {         points = 1000;       } else if
+(inRange(distance, 801, 1300)) {         points = 500;       } else if
+(inRange(distance, 1301, 1600)) {         points = 400;       } else
+if (inRange(distance, 1601, 2300)) {         points = 300;       }
+else if (inRange(distance, 2301, 2800)) {         points = 200;
+} else if (inRange(distance, 2801, 3200)) {         points = 100;
+} else if (inRange(distance, 3200, 4500)) {         points = 50;
+} else if (inRange(distance, 4501, 6000)) {         points = 25;
+} else { points = 0;       }       console.log('what');
 
       if (round < 5) {
+      console.log('test');
         endRound();
+
       } else if (round >= 5) {
+        console.log('weetest');
+
         endGame();
       }
 
@@ -205,8 +194,8 @@ $(document).ready(function() {
     roundScore = points;
     totalScore = totalScore + points;
 
-    $('#miniMap, #pano, #guessButton, #scoreBoard').hide();
-    $('#endGame').html('<h1>Congrats!</h1><h2>Your final score was:</h2><h1>' + totalScore + '!</h1><br/>Share this on:<br/><br/><a class="btn" href="http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent('Whereami') + '&p[summary]=' + encodeURIComponent('I just scored ' + totalScore + ' playing Whereami!') + '&p[url]=' + encodeURIComponent('https://github.com/webdevbrian/whereami') + '" target="_blank">Facebook</a> <a class="btn" href="https://twitter.com/intent/tweet?text=I+just+scored+' + totalScore + '+playing+whereami+by+@phrozen755,+based+off+of+geoguessr%21&url=https://github.com/webdevbrian/whereami" target="_blank">Twitter</a></p><br/><button class="btn btn-large btn-success playAgain" type="button">Play Again?</button>');
+    $('#miniMap, #pano, #guessButton, #scoreBoard, #timer').hide();
+    $('#endGame').html('<h1>Congrats!</h1><h2>Your final score was:</h2><h1>' + totalScore + '!</h1><br/><br><img src="img/mrmckay.gif"></br><button class="btn btn-large btn-success playAgain" type="button">Play Again?</button>');
     $('#endGame').fadeIn(500);
 
     rminitialize();
